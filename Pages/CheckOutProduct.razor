@@ -1,0 +1,104 @@
+﻿@page "/checkout"
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="/css/checkoutproduct.css">
+<body>
+    <div class="container hh">
+        <div class="row rowl">
+            <div class="col-8 z">
+                <h2>Billing details</h2>
+                <div class="input-container">
+                    <label class="form-label" for="email1">First Name*</label>
+                    <InputText id="email1" @bind-Value="OrderProductDTO.FirstName" class="form-control form-control-lg inputemail" />
+                </div>
+
+                <div class="input-container">
+                    <label class="form-label" for="email2">Last Name*</label>
+                    <InputText id="email2" @bind-Value="OrderProductDTO.LastName" class="form-control form-control-lg inputemail" />
+                </div>
+                <div class="input-">
+                    <label class="form-label" for="email2">Country</label>
+                    <InputText id="email2" @bind-Value="OrderProductDTO.Country" class="form-control form-control-lg inputt" />
+                </div>
+                <div class="input-">
+                    <label class="form-label" for="email2">STREET ADDRESS</label>
+                    <InputText id="email2" @bind-Value="OrderProductDTO.StreetAddress" class="form-control form-control-lg inputt" />
+                </div>
+                <div class="input-">
+                    <label class="form-label" for="email2">TOWN / CITY</label>
+                    <InputText id="email2" @bind-Value="OrderProductDTO.City" class="form-control form-control-lg inputt" />
+                </div>
+                <div class="input-">
+                    <label class="form-label" for="email2">STATE</label>
+                    <InputText id="email2" @bind-Value="OrderProductDTO.State" class="form-control form-control-lg inputt" />
+                </div>
+                <div class="input-">
+                    <label class="form-label" for="email2">ZIP CODE</label>
+                    <InputNumber id="email2" @bind-Value="OrderProductDTO.ZipCode" class="form-control form-control-lg inputt" />
+                </div>
+                <div class="input-">
+                    <label class="form-label" for="email2">EMAIL ADDRESS </label>
+                    <InputText id="email2" @bind-Value="OrderProductDTO.Email" class="form-control form-control-lg inputt" />
+                </div>
+                <div class="input-">
+                    <label class="form-label" for="email2">Number</label>
+                    <InputNumber id="email2" @bind-Value="OrderProductDTO.Number" class="form-control form-control-lg inputt" />
+                </div>
+            </div>
+            <div class="col-1 s">
+            </div>
+            <div class="col-3 b">
+                <h2>Your order</h2>
+                <div class="divi">
+                    <p>
+                        PRODUCT
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        SUBTOTAL
+                    </p>
+                    <hr />
+                    @foreach (var item in CartItem)
+                    {
+                        <div class="cart-item">
+                            <p class="trunkate-text">
+                                @item.CartTshirtName
+                            </p>
+                            <p style="margin-right: 5px;"> × @item.CartTshirtSum</p>
+                            <p class="bold-text">$@(item.CartTshirtPrice * item.CartTshirtSum)</p>
+                        </div>
+                        <hr />
+                    }
+
+                    <p>
+                        TOTAL
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <b>$@CalculateTotal()</b>
+                    </p>
+
+                    <h6>CASH ON DELIVERY</h6>
+                    <p class="pay">Pay with cash upon delivery.</p>
+
+                    <p class="paragraff">
+                        Your personal data will be used to process your order,
+                        support your experience throughout this website,
+                        and for other purposes described in our privacy policy.
+                    </p>
+
+                    <button class="button" @onclick="() =>  AddToOrderProduct()"><b>PLACE ORDER</b></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

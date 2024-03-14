@@ -1,0 +1,235 @@
+﻿@using E_Commerc.Data
+@using E_Commerc.Service
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.min.css" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="" icon="Home"></a>
+        <button class="navbar-toggler @NavButtonCssClass" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-label="Toggle navigation" @onclick="ToggleNavMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse @NavBarCssClass" id="navbarCollapse" @onclick="ToggleNavMenu" >
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                <li class="nav-item">
+                    <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                        <span class="oi oi-home" aria-hidden="true"></span> HOME
+                    </NavLink>
+                </li>
+                <li class="nav-item">
+                    <NavLink class="nav-link" href="/listofshoes">
+                        <span class="" aria-hidden="true"></span> SHOP
+                    </NavLink>
+                </li>
+                <li class="nav-item">
+                    <NavLink class="nav-link" href="/aboutus">
+                        <span class="" aria-hidden="true"></span> ABOUTUS
+                    </NavLink>
+                </li>
+                
+             </ul>
+             <ul class="navbar-nav ml-auto">
+                <div class="nav-item nav-icons" style="background-color: rgb(48, 48, 48);">
+                    <button style="background-color: rgb(48, 48, 48);" class="" @onclick="OpenCartModal">
+                        <i style="background-color: rgb(48, 48, 48);" class="fa-solid fa-cart-shopping">
+                        </i>
+                    </button>
+                </div>
+                 <li class="nav-item">
+                    @if (Authenticated)
+                    {
+                        <NavLink class="nav-link" href="logout">
+                            <span class="fas fa-sign-out-alt me-1" aria-hidden="true"></span> LOGOUT
+                        </NavLink>
+                    }
+                    else
+                    {
+                    <li class="nav-item">
+                        <NavLink class="nav-link" href="login">
+                            <i class="fas fa-user"></i> LOGIN
+                        </NavLink>
+                        </li>
+                    }
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+  @if (ShowCartModal)
+{
+    <div class="modal fade show" tabindex="-1" style="display: block; position: fixed; top: 0; left: 0; right: 0; bottom: 0;" @onclick="CloseCartModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Shopping Cart</h5>
+                <button type="button" class="btn-close" @onclick="CloseCartModal" aria-label="Close"></button>
+            </div>
+            @if (CartItem != null)
+            {
+                <div class="modal-body">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th class="modal-title">PRODUCT</th>
+
+                                <th>SUBTOTAL</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var cart in CartItem)
+                            {
+                                <tr>
+                                    <td> </td>
+                                    <td class="second-column"><img src="@cart.CartImgUrl"></td>
+                                    <td class="third-column">
+                                        @cart.CartTshirtName
+                                        <br />
+                                        <b>@cart.CartTshirtPrice</b>
+                                        <div id="number">@cart.CartTshirtSum</div>
+                                    </td>
+                                    <td class="sixth-column"><b>$@(cart.CartTshirtPrice * cart.CartTshirtSum)</b></td>
+                                </tr>
+                            }
+                        </tbody>
+
+                    </table>
+                    <br />
+                    <br />
+                    <p>
+                        <b>TOTAL</b>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <b>$@CalculateTotal()</b>
+                    </p>
+                    <p>Shipping, taxes, and discounts calculated at checkout.</p>
+                    <div class="button-container">
+                        <button class="buttonx" @onclick="() =>  GoToCart()"><b>VIEW MY CART</b></button>
+                        <button class="buttone" @onclick="() =>  AddToOrderProduct()"><b>PLACE ORDER</b></button>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <h3 class="h3title">YOUR CART IS CURRENTLY EMPTY!</h3>
+                <button class="buttonop" @onclick="() =>  GoToShopping()"><b>Start Shopping</b></button>
+            }
+
+        </div>
+
+    </div>
+   
+}  
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@code {
+    private bool collapseNavMenu = true;
+    private string? NavBarCssClass => collapseNavMenu ? null : "show";
+    private string? NavButtonCssClass => collapseNavMenu ? "collapsed" : null;
+    private bool ShowCartModal = false;
+
+
+    public List<CartItemTshirtDTO> CartItem { get; set; } = new List<CartItemTshirtDTO>();
+    [Inject]
+    public OrderProductDTO OrderProductDTO { get; set; } = new OrderProductDTO();
+
+    [Inject]
+    public IOrderService orderProduct { get; set; }
+     [Inject]
+     public ICartService cartServices { get; set; }
+    [Inject]
+    public CartItemTshirtDTO cart { get; set; } = new CartItemTshirtDTO();
+     [Inject]
+     public NavigationManager NavigationManager { get; set; }
+
+    protected async Task DeleteAll(int cart)
+    {
+        await cartServices.Delete(cart);
+    }
+    private void OpenCartModal()
+    {
+        ShowCartModal = true;
+    }
+    private void CloseCartModal()
+    {
+        ShowCartModal = false;
+    }
+    public void Navigate()
+    {
+        NavigationManager.NavigateTo("/checkout", forceLoad: true);
+    }
+    public void GoToCart()
+    {
+        NavigationManager.NavigateTo("/viewcartitem", forceLoad: true);
+    }
+    protected decimal CalculateTotal()
+    {
+        decimal total = 0;
+        foreach (var cart in CartItem)
+        {
+            total += cart.CartTshirtSum * cart.CartTshirtPrice;
+        }
+        return total;
+    }
+
+    protected async Task AddToOrderProduct()
+    {
+        foreach (var cartItem in CartItem)
+        {
+            OrderProductDTO or = new OrderProductDTO()
+                {
+                    FirstName = OrderProductDTO.FirstName,
+                    LastName = OrderProductDTO.LastName,
+                    Country = OrderProductDTO.Country,
+                    StreetAddress = OrderProductDTO.StreetAddress,
+                    City = OrderProductDTO.City,
+                    State = OrderProductDTO.State,
+                    ZipCode = OrderProductDTO.ZipCode,
+                    Email = OrderProductDTO.Email,
+                    Number = OrderProductDTO.Number,
+                    ProductName = cartItem.CartTshirtName,
+                    ProductSum = cartItem.CartTshirtSum,
+                    ProductPrice = cartItem.CartTshirtPrice,
+                };
+
+            await orderProduct.AddOrder(or);
+            await DeleteAll(or.Id);
+        }
+        Navigate();
+    }
+    protected void GoToShopping()
+    {
+        NavigationManager.NavigateTo("/listofshoes", forceLoad: true);
+    }
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+    private bool Authenticated = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        CartItem = await cartServices.GetItemAsync();
+
+        var authenticationState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        Authenticated = authenticationState?.User?.Identity?.IsAuthenticated == true;
+    }
+}

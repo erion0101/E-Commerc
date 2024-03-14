@@ -1,0 +1,69 @@
+﻿@page "/viewcartitem"
+<link rel="stylesheet" href="/css/cart.css">
+@if (CartItem == null)
+{
+    <div style="margin-left: 50%;" class="spinner-grow"></div>
+}
+else
+{
+
+    <div class="container">
+        <div class="row">
+            <div class="col-8 e">
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                            <th>PRODUCT</th>
+                            <th>PRICE</th>
+                            <th>QUANTITY</th>
+                            <th>SUBTOTAL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var cart in CartItem)
+                        {
+                            <tr>
+                                <td><button @onclick="() => DeleteCartItem(cartt.Id)">c</button></td>
+                                <td class="second-column"><img src="@cart.CartImgUrl"></td>
+                                <td class="third-column">@cart.CartTshirtName</td>
+                                <td class="fourth-column"><b>@cart.CartTshirtPrice</b></td>
+                                <td class="fifth-column"><div id="number">@cart.CartTshirtSum</div></td>
+                                <td class="sixth-column"><b>$@(cart.CartTshirtPrice * cart.CartTshirtSum)</b></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-1">
+            </div>
+            <div class="col-3 e">
+                <h3>Cart totals</h3>
+
+                <br />
+                <p>
+                    <b>SUBTOTAL</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <b>$@CalculateTotal()</b>
+                </p>
+                <hr />
+                <br />
+
+
+                <p>
+                    <b>TOTAL</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <b>$@CalculateTotal()</b>
+                </p>
+                <hr />
+
+                <button class="button" @onclick="() => Navigate()"><b>PROCEED TO CHECOUT</b></button>
+            </div>
+        </div>
+    </div>
+}

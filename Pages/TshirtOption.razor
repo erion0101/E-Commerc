@@ -1,0 +1,63 @@
+﻿@page "/shoes/{Id}"
+<link rel="stylesheet" href="/css/Shoes.css">
+<style>
+    .adding-to-cart {
+        background-color: #4CAF50; /* Change to your desired color */
+        color: white;
+        cursor: not-allowed;
+        transition: background-color 0.5s;
+    }
+
+        .adding-to-cart:hover {
+            background-color: #45a049; /* Change to your desired hover color */
+        }
+</style>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-6 column" style="background-size: cover; background-position: center; height: 500px; width: 500px; overflow: hidden;">
+                <img class="img-fluid" src="@selectedImage" style="width: 100%; height: auto; object-fit: contain;" />
+
+            </div>
+            <div class="col-6 c">
+                <h4>@TshirtDTO.TshirtName</h4>
+                <h5 class="h5"><del class="del">$199.50</del> $@TshirtDTO.TshirtPrice</h5>
+                <hr />
+                <p class="paragraf">@TshirtDTO.TshirtDescription</p>
+                <h2 class="size">Size</h2>
+                <label for="cars">Size</label>
+                <br />
+
+                <select id="cars" @onchange="UpdateCartShoesSize">
+                    <option disabled selected>Choose an option</option>
+                    <option>36</option>
+                    <option>37</option>
+                    <option>38</option>
+                    <option>39</option>
+                    <option>40</option>
+                    <option>41</option>
+                    <option>42</option>
+                    <option>43</option>
+                </select>
+                <br />
+                <input id="number" placeholder="0" @onchange="UpdateCartShoesSum" />
+                @* <button @onclick="() => AddToCart()" class="button">ADD TO CART</button> *@
+                <button @onclick="() => AddToCart()" class="button">ADD TO CART</button>
+                <br />
+                        <a href="@($"/editshoes/{TshirtDTO.Id}")" class="btn btn-primary">Edit</a>
+                        <a href="@($"/listofshoes")" @onclick="() => Delete()" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3 h">
+                <img class="h" src="@TshirtDTO.ImgUrl" @onclick="() => ChangeImage(TshirtDTO.ImgUrl)" />
+            </div>
+            <div class="col-3 h">
+
+                <img class="h" src="@TshirtDTO.ImgUrl2" @onclick="() => ChangeImage(TshirtDTO.ImgUrl2)" />
+            </div>
+        </div>
+    </div>
+
+</body>

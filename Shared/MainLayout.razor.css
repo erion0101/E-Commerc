@@ -1,0 +1,235 @@
+.page {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+article {
+    margin: 0px;
+    padding: 0px;
+}
+
+main {
+    flex: 1;
+     margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.sidebar {
+    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+}
+
+.top-row {
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #d6d5d5;
+    justify-content: flex-end;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+}
+
+    .top-row ::deep a, .top-row .btn-link {
+        white-space: nowrap;
+        margin-left: 1.5rem;
+    }
+
+    .top-row a:first-child {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+@media (max-width: 640.98px) {
+    .top-row:not(.auth) {
+        display: none;
+    }
+
+    .top-row.auth {
+        justify-content: space-between;
+    }
+
+    .top-row a, .top-row .btn-link {
+        margin-left: 0;
+    }
+}
+
+@media (min-width: 641px) {
+    .page {
+        flex-direction: row;
+    }
+
+    .sidebar {
+        width: 250px;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+    }
+
+    .top-row {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+
+    .top-row, article {
+       
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+}
+#contact {
+    background-color: white;
+    color: black;
+    padding: 50px 0;
+    margin-left: 80px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: space-around;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.footer-text {
+    flex: 1;
+    margin-right: 30px;
+}
+
+    .footer-text h3 {
+        font-size: 1.5em;
+        margin-bottom: 30px;
+    }
+
+    .footer-text p {
+        font-size: 14px;
+        line-height: 1.5;
+        padding: 5px;
+        max-width: 200px;
+    }
+
+    .footer-text a {
+        text-decoration: none;
+        color: black;
+    }
+
+        .footer-text a:hover {
+            color: darkgray;
+        }
+
+.footer-icons {
+    display: flex;
+    margin-right: 150px;
+    justify-content: space-around;
+}
+
+/*#contact {
+    background-color: white;
+    color: black;
+    padding: 50px 0;
+    margin-left: 80px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: space-around;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.footer-text {
+    flex: 1;
+    margin-right: 30px;
+}
+
+    .footer-text h3 {
+        font-size: 1.5em;
+        margin-bottom: 30px;
+    }
+
+    .footer-text p {
+        font-size: 14px;
+        line-height: 1.5;
+        padding: 5px;
+        max-width: 200px;
+    }
+
+    .footer-text a {
+        text-decoration: none;
+        color: black;
+    }
+
+        .footer-text a:hover {
+            color: darkgray;
+        }
+
+.footer-icons {
+    display: flex;
+    margin-right: 150px;
+    justify-content: space-around;
+}*/
+/*#contact {
+    background-color: white;
+    color: black;
+    padding: 50px 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;*/ /* Shto padding në të dy anët për faqen responsive */
+    /*box-sizing: border-box;*/ /* Kujdes me padding që mos të rritet totali i width-it */
+/*}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;*/ /* Lejo shumë kolona kur ekranit është më i ngushtë */
+    /*justify-content: space-around;
+}
+
+.footer-text {
+    flex: 1;
+    margin-right: 20px;*/ /* Redukto marginën për hapësirë më të mirë */
+    /*margin-bottom: 20px;*/ /* Shto marginën në fund të secilës teksti */
+    /*text-align: center;*/ /* Qendro tekstin në qendër për pamjen më të bukur */
+/*}
+
+.footer-icons {
+    display: flex;
+    justify-content: center;*/ /* Qendro ikonat në qendër */
+    /*margin-top: 20px;*/ /* Shto hapësirë mbi ikona */
+/*}
+
+.footer-text h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;*/ /* Redukto marginën poshtë të titullit */
+/*}
+
+.footer-text p {
+    font-size: 14px;
+    line-height: 1.5;
+    max-width: 100%;*/ /* Siguro që teksti mos të tejkalojë përmasat e konteinerit */
+/*}
+
+.footer-text a {
+    text-decoration: none;
+    color: black;
+}
+
+    .footer-text a:hover {
+        color: darkgray;
+    }*/

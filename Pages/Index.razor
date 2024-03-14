@@ -1,0 +1,207 @@
+﻿@page "/"
+<PageTitle>Index</PageTitle>
+
+<link rel="stylesheet" href="/css/index.css">
+
+
+<body>
+    <img class="epe" src="/css/Photo/save.jpg" />
+
+
+    <div class="container-fluid shoes-section" style="margin-top: 130px;">
+        <div class="row">
+            <div class="texth4" style="margin-bottom: 10px;">
+                <h4 class="h4">FEATURED</h4>
+                <a class="custom-link" href="/listofshoes">View all products</a>
+            </div>
+
+
+            <div class="col-12 col-sm-6 col-md-3  mb-4 ">
+                <div class="background-wrapper">
+                    <div @onclick="RedirectToShoesPage" @onmouseover="() => ShowHoverImage(1)" @onmouseout="() => HideHoverImage(0)">
+                        @if (hoveredImage == 1)
+                        {
+                            <img class="img-fluid x" src="https://lenis.themeskingdom.com/wp-content/uploads/2022/08/el-tigre-n3.jpg" alt="Photo 1" />
+
+                        }
+                        else
+                        {
+                            <img class="img-fluid x" src="https://lenis.themeskingdom.com/wp-content/uploads/2022/08/el-tigre-n1.jpg" alt="Photo 1" />
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-3 mb-4 ">
+                <div class="background-wrapper">
+                    <div @onclick="RedirectToShoesPagee" @onmouseover="() => ShowHoverImage(2)" @onmouseout="() => HideHoverImage(0)">
+                        @if (hoveredImage == 2)
+                        {
+                            <img style="" class="img-fluid x" src="https://lenis.themeskingdom.com/wp-content/uploads/2022/08/leftovers2.jpg" alt="Photo 1" />
+                        }
+                        else
+                        {
+                            <img style="" class="img-fluid x" src="https://lenis.themeskingdom.com/wp-content/uploads/2022/08/leftovers.jpg" alt="Photo 1" />
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-3 mb-4 ">
+                <div class="background-wrapper">
+                    <div @onclick="RedirectToShoesPageId" @onmouseover="() => ShowHoverImage(3)" @onmouseout="() => HideHoverImage(0)">
+                        @if (hoveredImage == 3)
+                        {
+                            <img class="img-fluid x" src="https://lenis.themeskingdom.com/wp-content/uploads/2022/08/thunder2.jpg" alt="Photo 3" />
+                        }
+                        else
+                        {
+                            <img class="img-fluid x" src="https://lenis.themeskingdom.com/wp-content/uploads/2022/08/thunder.jpg" alt="Photo 3" />
+
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-3 mb-4 ">
+                <div class="background-wrapper">
+                    <div @onclick="RedirectToShoes" @onmouseover="() => ShowHoverImage(4)" @onmouseout="() => HideHoverImage(0)">
+                        @if (hoveredImage == 4)
+                        {
+                            <img class="img-fluid x" src="https://lenis.themeskingdom.com/wp-content/uploads/2022/08/Reverse-off3.jpg" alt="Photo 4" />
+                        }
+                        else
+                        {
+                            <img class="img-fluid x" src="https://lenis.themeskingdom.com/wp-content/uploads/2022/08/Reverse-off1.jpeg" alt="Photo 4" />
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container containerformaica">
+            <div class="row justify-content-center mt-5 mb-5">
+                <div class="col-12 col-sm-6 " style="margin: 0px;">
+                    <img style="margin-right: 0px;" class="img" src="https://lenis.themeskingdom.com/wp-content/uploads/2022/09/h-woman2.jpg" alt="Image 1">
+                </div>
+                <div class="col-12 col-sm-6 " style="margin: 0px;">
+                    <img style="margin-left: 0px;" class="img" src="https://lenis.themeskingdom.com/wp-content/uploads/2022/09/h-man2.jpg" alt="Image 2">
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid shoes-section" style="margin-top: 130px;">
+            <div class="row">
+                <div class="texth4" style="margin-bottom: 10px;">
+                    <h4 class="h4">ON SALE</h4>
+                    <a class="custom-link" href="/listofshoes">View Collection</a>
+                </div>
+                <div class="col-12 col-sm-6 col-md-3  mb-4 ">
+                    <div class="background-wrapper">
+                        <div @onclick="Maica1" @onmouseover="() => ShowHoverImage(1)" @onmouseout="() => HideHoverImage(0)">
+                            @if (hoveredImage == 1)
+                            {
+                                <img class="img-fluid x" src="https://lenis.themeskingdom.com/wp-content/uploads/2022/08/arch-n1.jpg" alt="Photo 1" />
+
+                            }
+                            else
+                            {
+                                <img class="img-fluid x" src="https://lenis.themeskingdom.com/wp-content/uploads/2022/08/arch-n2.jpg" alt="Photo 1" />
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-3 mb-4 ">
+                    <div class="background-wrapper">
+                        <div @onclick="Maica2" @onmouseover="() => ShowHoverImage(2)" @onmouseout="() => HideHoverImage(0)">
+                            @if (hoveredImage == 2)
+                            {
+                                <img style="" class="img-fluid x" src="https://lenis.themeskingdom.com/wp-content/uploads/2022/08/business-w.jpg" alt="Photo 1" />
+                            }
+                            else
+                            {
+                                <img style="" class="img-fluid x" src="https://lenis.themeskingdom.com/wp-content/uploads/2022/08/business-w2.jpg" alt="Photo 1" />
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-3 mb-4 ">
+                    <div class="background-wrapper">
+                        <div @onclick="Maica3" @onmouseover="() => ShowHoverImage(3)" @onmouseout="() => HideHoverImage(0)">
+                            @if (hoveredImage == 3)
+                            {
+                                <img class="img-fluid x" src="https://lenis.themeskingdom.com/wp-content/uploads/2022/08/thunder2.jpg" alt="Photo 3" />
+                            }
+                            else
+                            {
+                                <img class="img-fluid x" src="https://lenis.themeskingdom.com/wp-content/uploads/2022/08/demedicated3.jpg" alt="Photo 3" />
+
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-3 mb-4 ">
+                    <div class="background-wrapper">
+                        <div @onclick="Maica4" @onmouseover="() => ShowHoverImage(4)" @onmouseout="() => HideHoverImage(0)">
+                            @if (hoveredImage == 4)
+                            {
+                                <img class="img-fluid x" src="https://lenis.themeskingdom.com/wp-content/uploads/2022/08/revert.jpg" alt="Photo 4" />
+                            }
+                            else
+                            {
+                                <img class="img-fluid x" src="https://lenis.themeskingdom.com/wp-content/uploads/2022/08/revert1.jpg" alt="Photo 4" />
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container blog-section">
+        <div class="row blog-header">
+            <div class="col-xs-12">
+                <h1 class="blog">BLOG</h1>
+                <hr class="hr" />
+                <h5>
+                    READ ABOUT OVER PRODUCTS, MANUFACTURING, MATERIALS AND ETHICAL <br />
+                    PRACTICES WE STICK TO HELP MAINTAIN A PEACEFUL ECOSYSTEM.
+                </h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-12">
+                <div class="col-xs-12">
+                    <img src="/css/Photo/post4.jpg" class="img-responsive h" alt="Image 1">
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-12">
+                <div class="col-xs-12">
+                    <p style="font-size: 15px;">SEPTEMBER 1, 2022</p>
+                    <h5 class="h5">WELCOME TO OUR NEW STUDIO!</h5>
+                    <p class="p">
+                        We are proud to announce that Ignis has moved into a new space! After months of searching
+                        for the right place to shoes clothing apparel, we decided to choose this studio, as it can
+                        be an office and an art studio in one. What stunned us the most was the balcony that faces southeast.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-12">
+                <div class="col-xs-12">
+                    <img src="/css/Photo/post3.jpg" class="img-responsive h" alt="Image 2">
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-12">
+                <div class="col-xs-12">
+                    <p style="font-size: 15px;">SEPTEMBER 1, 2022</p>
+                    <h5 class="h5">SHAKE’N’TAKE</h5>
+                    <p class="p">
+                        Graphic shoes have come a long way in the past couple of years.
+                        They are no longer connected to the teenage box, but rather a grown-up style piece.
+                        In celebration of the graphic shoes glow-up, we are proud to
+                        announce our best-selling white shoes
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>

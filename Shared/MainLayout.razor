@@ -1,0 +1,301 @@
+﻿@inherits LayoutComponentBase
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script> 
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.umd.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+<!-- Add chart.js reference if chart components are used in your application. -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.0.1/chart.umd.js" integrity="sha512-gQhCDsnnnUfaRzD8k1L5llCCV6O9HN09zClIzzeJ8OJ9MpGmIlCxm+pdCkqTwqJ4JcjbojFr79rl2F1mzcoLMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- Add chartjs-plugin-datalabels.min.js reference if chart components with data label feature is used in your application. -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.2.0/chartjs-plugin-datalabels.min.js" integrity="sha512-JPcRR8yFa8mmCsfrw4TNte1ZvF1e3+1SdGMslZvmrzDYxS69J7J49vkFL8u6u8PlPJK+H3voElBtUCzaXj+6ig==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="_content/Blazor.Bootstrap/blazor.bootstrap.js"></script>
+<style>
+    .x{
+        margin-top: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+        margin-right: 0px;
+        padding-left: 0px;
+        padding-right: 0px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+    main{
+        padding-left: 0px;
+        padding-right: 0px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        margin-left: 0px;
+        margin-right: 0px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    .footer{
+        margin-bottom: 0px;
+    }
+</style>
+<PageTitle>ShoesUIBlazoreServerAp</PageTitle>
+
+<div class="x">
+<NavMenu />
+</div>
+<main>
+    <article class="content ">
+        @Body
+    </article>
+
+    <footer class="bg-body-tertiary text-center text-lg-start mt-5">
+        <div class="container p-4 pb-0 ">
+        </div>
+        <div class="text-center p-3" style="  background-color: rgb(45, 44, 44);">
+            <div class="container pt-4">
+                <section class="mb-4 text-center">
+                    <a class="btn text-white btn-link btn-floating btn-lg text-body m-1"
+                       href="https://www.facebook.com/erion.shahini.5"
+                       role="button">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+
+
+                    <a data-mdb-ripple-init
+                       class="btn btn-link btn-floating btn-lg text-body m-1"
+                       href="#!"
+                       role="button"
+                       data-mdb-ripple-color="dark">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+
+
+                    <a data-mdb-ripple-init
+                       class="btn btn-link btn-floating btn-lg text-body m-1"
+                       href="mailto:erion.shahini@universitetiaab.com"
+                       role="button"
+                       data-mdb-ripple-color="dark">
+                        <i class="fab fa-google"></i>
+                    </a>
+
+
+                    <a data-mdb-ripple-init
+                       class="btn btn-link btn-floating btn-lg text-body m-1"
+                       href="https://www.instagram.com/erionshahinii/"
+                       role="button"
+                       data-mdb-ripple-color="dark">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+
+
+                    <a data-mdb-ripple-init
+                       class="btn btn-link btn-floating btn-lg text-body m-1"
+                       href="https://www.linkedin.com/in/erion-shahini-860542275/"
+                       role="button"
+                       data-mdb-ripple-color="dark">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+
+                    <a data-mdb-ripple-init
+                       class="btn btn-link btn-floating btn-lg text-body m-1"
+                       href="https://github.com/erion0101"
+                       role="button"
+                       data-mdb-ripple-color="dark">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </section>
+
+            </div>
+
+            <section class="">
+                <div class="container text-center text-white text-md-start mt-5">
+
+                    <div class="row mt-3">
+
+                        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+
+                            <h6 class="text-uppercase fw-bold mb-4">
+                                <i class="me-3"></i>AAB Shoes Store
+                            </h6>
+                            <p>
+                                KShoes are not about making you beautiful, but making you feel beautiful!
+                            </p>
+                        </div>
+
+                        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+
+                            <h6 class="text-uppercase fw-bold mb-4">
+                                Products
+                            </h6>
+                            <p>
+                                <a href="https://www.nike.com/jordan" class="text-reset">Jordan</a>
+                            </p>
+                            <p>
+                                <a href="https://www.nike.com/" class="text-reset">Nike</a>
+                            </p>
+                            <p>
+                                <a href="https://eu.louisvuitton.com/eng-e1/men/shoes/all-shoes/_/N-t118ht95" class="text-reset">LV</a>
+                            </p>
+                        </div>
+
+
+                        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+
+                            <h6 class="text-uppercase fw-bold mb-4">
+                                Useful links
+                            </h6>
+                            <p>
+                                <a href="https://localhost:7072/" class="text-reset">Home</a>
+                            </p>
+                            <p>
+                                <a href="https://localhost:7072/listofshoes" class="text-reset">Shoes</a>
+                            </p>
+                            <p>
+                                <a href="https://localhost:7072/aboutus" class="text-reset">About Us</a>
+                            </p>
+                            <p>
+                                <a href="https://localhost:7072/login" class="text-reset">Login</a>
+                            </p>
+                        </div>
+
+                        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+
+                            <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+                            <p><i class="fas fa-home me-3"></i> Prishtine, KS</p>
+                            <p>
+                                <i class="fas fa-envelope me-3"></i> erion.besar@universitetiaab.com
+                            </p>
+                            <p><i class="fas fa-phone me-3"></i> +383 44 454 322</p>
+                            <p><i class="fas fa-print me-3"></i>  14000</p>
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+
+
+
+            <div class="copyright">
+                copyright by <a href="">Erion Besar</a>
+                2023 all rights reserved.
+            </div>
+        </div>
+    </footer>
+</main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@* @inherits LayoutComponentBase
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<PageTitle>ShoesUIBlazoreServerAp</PageTitle>
+
+<div class="page">
+    <div >
+         <NavMenu /> 
+    </div>
+    <main>
+         <div class="top-row px-4">
+            <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a> 
+        </div>  
+
+        <article class="content px-4">
+            @Body
+        </article>
+        <hr />
+        <section id="contact">
+            <footer class="black-background">
+                <div class="container blog-section">
+                <div class="footer-content">
+                    <div class="footer-text">
+                        <h3>The Wardrobe</h3>
+                        <p>
+                            Stay up to date with the latest news and offers from The Wardrobe. Follow us on social media and join our
+                            community of Footwear enthusiasts.
+                        </p>
+                        <div class="footer-icons">
+                            <a href="https://www.instagram.com/" target="_blank"><i class="bi bi-instagram"></i></a>
+                            <a href="https://www.tiktok.com/explore" target="_blank"><i class="bi bi-tiktok"></i></a>
+                            <a href="https://www.facebook.com/" target="_blank"><i class="bi bi-facebook"></i></a>
+                            <a href="https://twitter.com/" target="_blank"><i class="bi bi-twitter-x"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-text">
+                        <h3>Shop</h3>
+                            <p><a href="/shoes/5">Air Jordan 1</a></p>
+                            <p><a href="/shoes/8">Air Force</a></p>
+                            <p><a href="/shoes/6">Air Jordan Black</a></p>
+                    </div>
+                    <div class="footer-text">
+                        <h3>About</h3>
+                            <p><a href="#">Home</a></p>
+                            <p><a href="/listofshoes">Shop</a></p>
+                            <p><a href="/aboutus">About Us</a></p>
+                            <p><a href="/login">Login</a></p>
+                    </div>
+                    <div class="footer-text">
+                        <h3>Need Help ?</h3>
+                            <p><a href="/listofshoes">Shop</a></p>
+                        <p><a href="#">My account</a></p>
+                        <p><a href="#">Cart</a></p>
+                        <p><a href="#">Checkout</a></p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        </section>
+    </main>
+</div>
+ *@

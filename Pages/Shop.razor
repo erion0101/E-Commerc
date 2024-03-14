@@ -1,0 +1,178 @@
+﻿@page "/listofshoes"
+<link rel="stylesheet" href="/css/ListOfShoes.css">
+ <style>
+     @*
+    .search-container {
+        margin-top: 70px;
+        margin-bottom: 20px;
+        margin-left: 50%;
+        width: 100%;
+    }
+
+    #search-input {
+        padding: 10px;
+        width: 300px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    #search-button {
+        background-color: black;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        margin-left: 10px;
+        font-size: 14px;
+        cursor: pointer;
+        width: 100px;
+        text-decoration: none;
+    }
+
+        #search-button:hover {
+            background-color: white;
+            color: black;
+            border: 1px solid black;
+        }
+
+    .idbuton {
+        background-color: black;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        margin-left: 10px;
+        font-size: 14px;
+        cursor: pointer;
+        width: 100px;
+        text-decoration: none;
+        width: 20px;
+        height: 42px;
+    }
+
+        .idbuton:hover {
+            background-color: white;
+            color: black;
+            border: 1px solid black;
+        }
+
+    .csc {
+        margin-bottom: 15px;
+    }
+
+    .text {
+        margin-bottom: 100px;
+    }
+
+    .price {
+        position: relative;
+        text-decoration: none;
+        display: inline-block;
+    }
+        .price::after
+        {
+            content: "Select Option";
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            color: transparent;
+            transition: width 0.3s ease, color 0.3s ease;
+        }
+
+    .price:hover::after {
+        width: 100%;
+        color: black;
+    }
+    hr{
+        color: black;
+    }
+
+    .h1shop{
+        color: black;
+        display: block;
+        margin-left: 0px;
+         margin-top: 70px; 
+    } *@
+     .search-container {
+        margin-top: 70px;
+        margin-bottom: 20px;
+        width: 100%;
+        text-align: center; /* Vendos tekst në qendër */
+    }
+
+    #search-input {
+        padding: 10px;
+        width: 300px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        margin-left: 300px;
+    }
+
+    #search-button {
+        background-color: black;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        margin-left: 10px;
+        font-size: 14px;
+        cursor: pointer;
+        width: 100px;
+        text-decoration: none;
+    }
+
+    #search-button:hover {
+        background-color: white;
+        color: black;
+        border: 1px solid black;
+    }
+
+    .h1shop {
+        color: black;
+        display: inline-block;
+        margin-left: 0px;
+        margin-right: 330px;
+        margin-top: 40px;
+    }
+    
+</style>
+<PageTitle>Shop Shoes</PageTitle>
+<body>
+    <div class="container">
+        <div class="row">
+               
+            <div class="search-container">
+                <h1 class="h1shop">Shop</h1>
+                <InputText @bind-Value="@search" @oninput="() => Serche()" id="search-input" placeholder="Serche" />
+                   <button type="submit" id="search-button" @onclick="() => Serche()" >Search</button> 
+                <button type="submit" id="search-button" @onclick="() => NavigateTo()">Create</button>
+            </div>
+            <hr />
+            @if (tshirtDTO == null)
+            {
+                <div style="margin-left: 50%;" class="spinner-grow"></div>
+            }
+            else
+            {
+                @foreach (var tshirt in tshirtDTO)
+                {
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-1 lp ">
+                        <img class="img-fluid x csc" @onclick="()=> RedirectToShoesPage(tshirt.Id.ToString())" src="@tshirt.ImgUrl" alt="Photo 1" />
+                        <div class="text text-truncate">
+                            @tshirt.TshirtName
+                            <br />
+                             <span class="price">$@tshirt.TshirtPrice</span> 
+                            <span class="price" @onmouseover="ShowOriginalPrice" @onmouseout="ShowHoverPrice">@ShoesPrice</span>
+                        </div>
+                    </div>
+
+                }
+            }
+        </div>
+    </div>
+</body>

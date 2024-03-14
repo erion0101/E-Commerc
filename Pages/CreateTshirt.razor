@@ -1,0 +1,58 @@
+﻿@page "/create"
+<style>
+    h3 {
+        margin-top: 50px;
+    }
+</style>
+<EditForm Model="@TshirtDTO">
+    <h3>Create Shoes</h3>
+    <hr />
+    <div class="form-group row">
+        <label for="firstName" class="col-sm-2 col-form-label">First Name</label>
+        <div class="col-sm-10">
+            <InputText id="firstName" class="form-control" placeholder="First Name" @bind-Value="TshirtDTO.TshirtName" />
+        </div>
+    </div>
+    <hr />
+    <div class="form-group row">
+        <label for="description" class="col-sm-2 col-form-label">Descrption</label>
+        <div class="col-sm-10">
+            <InputTextArea id="description" class="form-control" placeholder="Description" @bind-Value="TshirtDTO.TshirtDescription" />
+        </div>
+    </div>
+    <hr />
+    <div class="form-group row">
+        <label for="price" class="col-sm-2 col-form-label">Price</label>
+        <div class="col-sm-10">
+            <InputNumber id="price" class="form-control" placeholder="Price" @bind-Value="TshirtDTO.TshirtPrice" />
+        </div>
+    </div>
+    <hr />
+    <div class="form-group row">
+        <label for="Size" class="col-sm-2 col-form-label">Size</label>
+        <div class="col-sm-10">
+                <InputText id="Size" class="form-control" placeholder="Size" @bind-Value="TshirtDTO.TshirtSize" />
+        </div>
+    </div>
+    <hr />
+    <div class="form-group row">
+        <label for="ImgUrl" class="col-sm-2 col-form-label">ImgUrl</label>
+        <div class="col-sm-10">
+                <InputText id="ImgUrl" class="form-control" placeholder="ImgUrl" @bind-Value="TshirtDTO.ImgUrl" />
+        </div>
+    </div>
+    <hr />
+    <div class="form-group row">
+        <label for="ImgUrl2" class="col-sm-2 col-form-label">ImgUrl2</label>
+        <div class="col-sm-10">
+                <InputText id="ImgUrl2" class="form-control" placeholder="ImgUrl2" @bind-Value="TshirtDTO.ImgUrl2" />
+        </div>
+    </div>
+    <hr />
+    <div class="form-group row">
+        <div class="col-sm-10 offset-sm-2">
+            <button style="margin-top: 15px" @onclick="Add" type="submit" class="btn btn-primary">Create Shoes</button>
+        </div>
+    </div>
+</EditForm>
+
